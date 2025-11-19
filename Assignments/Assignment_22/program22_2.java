@@ -2,23 +2,29 @@ import java.util.*;
 
 class Logic
 {
-
-    public int CountEven(int Arr[],int iLength)
+    public int FrequencyDiff(int Arr[],int iLength)
     {
-        int iCnt = 0, iCount = 0;
+        int iCnt = 0,iAns=0,iEvenCount = 0,iOddCount=0;
 
         for(iCnt = 0; iCnt < iLength; iCnt++)
         {
             if((Arr[iCnt] % 2) == 0)
             {
-                iCount++;
+                iEvenCount++;
+            }
+            else
+            {
+                iOddCount++;
             }
         }
-        return iCount;
+        
+        iAns=iEvenCount-iOddCount;
+        
+        return iAns;
     }
 }
 
-class program22_1
+class program22_2
 {
     public static void main(String A[])
     {
@@ -27,6 +33,7 @@ class program22_1
         Scanner sobj = new Scanner(System.in);
         
         System.out.println("Enter the size of array : ");
+        
         iSize = sobj.nextInt();
         
         int Arr[] = new int[iSize];
@@ -35,12 +42,12 @@ class program22_1
         
         Logic lobj=new Logic();
         
-        for(iCnt = 0; iCnt < iSize; iCnt++)
+        for(iCnt = 0; iCnt < Arr.length; iCnt++)
         {
             Arr[iCnt] = sobj.nextInt();
         }
 
-        iRet = lobj.CountEven(Arr,iSize);
+        iRet = lobj.FrequencyDiff(Arr,iSize);
         System.out.println("The number of Even elements are : " +iRet);
 
         // Important
@@ -49,5 +56,5 @@ class program22_1
         sobj = null;
 
         System.gc();
-    }
+    }   
 }
