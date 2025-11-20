@@ -2,22 +2,27 @@ import java.util.*;
 
 class Logic
 {
-    int Maximum(int Arr[],int iLength)
+    int Difference(int Arr[],int iLength)
     {
-        int iCnt=0,iMax=0;
-        
-        for(iMax=Arr[iCnt],iCnt=0;iCnt<iLength;iCnt++)
+        int iCnt=0;
+        int min = Arr[0];
+        int max = Arr[0];
+
+        for(iCnt = 1; iCnt < iLength; iCnt++)
         {
-            if(Arr[iCnt]>iMax)
+            if(Arr[iCnt] < min)
             {
-                iMax=Arr[iCnt];
+                min = Arr[iCnt];
+            }
+            if(Arr[iCnt] > max)
+            {
+                max = Arr[iCnt];
             }
         }
-        return iMax;
+        return max - min;  
     }
-
 }
-class program24_1
+class program24_3
 {
     public static void main(String A[]) 
     {
@@ -41,9 +46,9 @@ class program24_1
         Logic lobj = new Logic();
         
         //Step 2:Use the memory
-        iRet= lobj.Maximum(Arr,iSize);
+        iRet= lobj.Difference(Arr,iSize);
         
-        System.out.println("Maximum number is : " +iRet);
+        System.out.println("Diffrence between Max and Min number is : " +iRet);
         
         //Step 3:Free memory
         lobj=null;
@@ -51,8 +56,7 @@ class program24_1
         sobj=null;
         
         System.gc();
-    }
-    
+    }  
 }      
 
 

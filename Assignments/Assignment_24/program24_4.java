@@ -1,27 +1,27 @@
+
 import java.util.*;
 
 class Logic
 {
-    int Maximum(int Arr[],int iLength)
+    void Digits(int Arr[],int iLength)
     {
-        int iCnt=0,iMax=0;
-        
-        for(iMax=Arr[iCnt],iCnt=0;iCnt<iLength;iCnt++)
-        {
-            if(Arr[iCnt]>iMax)
-            {
-                iMax=Arr[iCnt];
-            }
-        }
-        return iMax;
-    }
+       int iCnt=0;
 
+        for(iCnt = 0; iCnt < iLength; iCnt++)
+        {
+           if(Arr[iCnt]>=100 && Arr[iCnt]<=999)
+           {
+            System.out.println(Arr[iCnt]);
+           } 
+    
+        }
+    }
 }
-class program24_1
+class program24_4
 {
     public static void main(String A[]) 
     {
-        int iCnt=0,iSize=0,iRet=0;
+        int iCnt=0,iSize=0;
     
         Scanner sobj = new Scanner(System.in);
         
@@ -41,9 +41,7 @@ class program24_1
         Logic lobj = new Logic();
         
         //Step 2:Use the memory
-        iRet= lobj.Maximum(Arr,iSize);
-        
-        System.out.println("Maximum number is : " +iRet);
+        lobj.Digits(Arr,iSize);
         
         //Step 3:Free memory
         lobj=null;
@@ -51,8 +49,7 @@ class program24_1
         sobj=null;
         
         System.gc();
-    }
-    
+    }  
 }      
 
 
