@@ -3,29 +3,25 @@ import java.util.*;
 
 class Logic
 {
-    int Difference(int Arr[],int iLength)
+    public void  Display(int Arr[],int iLength)
     {
-       int iCnt=0,iEvenSum=0,iOddSum=0;
+       int iCnt=0;
 
         for(iCnt = 0; iCnt < iLength; iCnt++)
         {
-            if(Arr[iCnt]%2==0)
+            if((Arr[iCnt]%2==0)&&(Arr[iCnt]%5==0))
             {
-                iEvenSum=iEvenSum+Arr[iCnt];
-            }
-            else
-            {
-               iOddSum=iOddSum+Arr[iCnt]; 
+               System.out.println(Arr[iCnt]);
             }
         }
-        return iEvenSum-iOddSum;
+        
     }
 }
-class program25_1
+class program25_3
 {
     public static void main(String A[]) 
     {
-        int iCnt=0,iSize=0,iRet=0;
+        int iCnt=0,iSize=0;
     
         Scanner sobj = new Scanner(System.in);
         
@@ -45,10 +41,9 @@ class program25_1
         Logic lobj = new Logic();
         
         //Step 2:Use the memory
-        iRet=lobj.Difference(Arr,iSize);
+        System.out.println("The numbers that are even and  divisible by 5 are : ");
+        lobj.Display(Arr,iSize);
         
-        System.out.println("The Difference between Odd and Even elements is : " +iRet);
-    
         
         //Step 3:Free memory
         lobj=null;
