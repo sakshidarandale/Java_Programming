@@ -22,17 +22,20 @@ class Logic
 {
     public void Display(int iRow, int iCol)
     {
-       int i=0,j=0;
-        char ch='\0';
+        int i = 0, j = 0;
         
-        for(i=1;i<=iRow;i++)
+        char ch='A';
+
+        for(i = 1 ; i <= iRow; i++) 
         {
-            for(j=1,ch='A';j<=iCol;j++, ch++)
+            for(j = 1; j <= iCol; j++)
             {
-                System.out.printf("%c\t",ch);       
+                System.out.printf("%c\t",ch);      
             }
+            ch++;
             System.out.println();
         }
+        System.out.println();
     }
 }
 
@@ -42,7 +45,7 @@ class Logic
 //
 /////////////////////////////////////////////////////////////////////
 
-class program28_1
+class program28_3
 {
     public static void main(String A[])
     {
@@ -70,8 +73,8 @@ class program28_1
 //  columns : 4
 
 //  Output:
-//  A B C D
-//  A B C D
-//  A B C D
-//  A B C D
+//  A A A A
+//  B B B B
+//  C C C C
+//  D D D D
 /////////////////////////////////////////////////////////////////////
