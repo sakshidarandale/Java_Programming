@@ -28,7 +28,7 @@ class Logic
         {
             for(j = 1; j <= iCol; j++)
             {
-                System.out.print("*\t");  
+                System.out.print(j+"\t");
             }
             System.out.println();
         }
@@ -42,7 +42,7 @@ class Logic
 //
 /////////////////////////////////////////////////////////////////////
 
-class program27_1
+class program27_2
 {
     public static void main(String A[])
     {
@@ -66,13 +66,14 @@ class program27_1
 // Input / Output
 // 
 //  Input:
-//  rows : 3
-//  columns : 4
+//  rows : 4
+//  columns : 3
 
 //  Output:
-//  *   *   *   *
-//  *   *   *   *
-//  *   *   *   *
+//  1 2 3 
+//  1 2 3 
+//  1 2 3 
+//  1 2 3 
 //
 /////////////////////////////////////////////////////////////////////
 
