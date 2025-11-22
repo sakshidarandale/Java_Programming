@@ -10,7 +10,8 @@ import java.util.*;
 //
 //  Class Name     : Logic
 //  Function Name  : Display
-//  Description    : It is used to display characters from A to E
+//  Description    : It displays numbers from 1 to iNo with # before
+//                   each number and * after each number in between
 //  Input          : integer
 //  Output         : void
 //  Author         : Sakshi Ravindra Darandale
@@ -21,17 +22,20 @@ import java.util.*;
 class Logic
 {
     public void Display(int iNo)
-   {
+    {
+    
         int iCnt=0;
         
-        char ch='A';
-        for(iCnt=1;iCnt<=iNo;iCnt++,ch++)
+        for(iCnt=1;iCnt<=iNo;iCnt++)
         {
-            System.out.printf("%c\t",ch);
+            System.out.print("#\t"); 
+            System.out.print(iCnt+ "\t"); 
+            System.out.print("*\t");                
         }
         System.out.println();
-   }
+    }    
 }
+            
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -39,7 +43,7 @@ class Logic
 //
 /////////////////////////////////////////////////////////////////////
 
-class program26_1
+class program26_4
 {
     public static void main(String A[])
     {
@@ -55,12 +59,13 @@ class program26_1
         lobj.Display(iValue);
     }
 }
+
 ///////////////////////////////////////////////////////////////
 //   
 //  Input :5
 //   
 //  Output :
 //   
-//    A    B   C   D   E
+//    #  1  *  #   2  *  #   3  *   #  4   *  
 //                         
 ////////////////////////////////////////////////////////////// 
