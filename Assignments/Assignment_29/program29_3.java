@@ -3,7 +3,7 @@
 // Input / Output
 // 
 //  Input:
-//  rows : 4
+//  rows : 5
 //  columns : 5
 //
 //  Output:
@@ -90,4 +90,5 @@ class program29_3
     }
   
 }
+
 
