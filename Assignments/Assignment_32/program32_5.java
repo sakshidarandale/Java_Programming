@@ -7,12 +7,11 @@
 //  columns : 4
 //
 //  Output:
-// 
-//   1  2   3   4
-//      2   3   4
-//          3   4
-//              4
 //
+//  1   2   3   4   5
+//  1   2           5
+//  1       3       5
+//  1   2   3   4   5
 /////////////////////////////////////////////////////////////////////
 
 
@@ -32,7 +31,7 @@ import java.util.*;
 //  Input          : integer,integer
 //  Output         : void
 //  Author         : Sakshi Ravindra Darandale
-//  Date           : 21/11/2025
+//  Date           : 22/11/2025
 //  
 /////////////////////////////////////////////////////////////////////
 
@@ -54,15 +53,14 @@ class Logic
         {
             for(j = 1;j<=iCol; j++)
             {
-                if(j==iCol-i+1)
+                if(i==1 || i==iRow ||j==1 || j==iCol ||i==j )
                 {
-                   System.out.print("#\t"); 
+                    System.out.print(j+"\t");
                 }
                 else
                 {
-                    System.out.print("*\t");
+                    System.out.print("  \t");
                 }
-                
             }
             System.out.println();
         }
@@ -76,7 +74,7 @@ class Logic
 //
 /////////////////////////////////////////////////////////////////////
 
-class program32_1
+class program32_5
 {
     public static void main(String A[])
     {
