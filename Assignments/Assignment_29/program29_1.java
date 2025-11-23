@@ -1,9 +1,27 @@
 /////////////////////////////////////////////////////////////////////
 //
+// Input / Output
+// 
+//  Input:
+//  rows : 4
+//  columns : 4
+//
+//  Output:
+// 
+//   1  2   3   4
+//   5  6   7   8
+//   9  1   2   3
+//   4  5   6   7
+/////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////
+//
 //  Required Packages
 //
 /////////////////////////////////////////////////////////////////////
 
+import java.lang.Runtime.Version;
 import java.util.*;
 
 ///////////////////////////////////////////////////////////////////// 
@@ -23,29 +41,24 @@ class Logic
     public void Display(int iRow, int iCol)
     {
         int i = 0, j = 0;
-        
-        //updator
-        
-        if(iRow!=iCol)
-        {
-            System.out.println("Invalid Input");
-            System.out.println("Row number and Column number should be same");
-            return;
-        }
+
+        int iCount=1;
         for(i = 1; i <= iRow; i++) 
         {
+
             for(j = 1; j <= iCol; j++)
             {
-                if(i>=j)
+                System.out.print(iCount+"\t");  
+                
+                iCount++;
+            
+                if(iCount == 10)
                 {
-                    System.out.print("*\t");
-                }
-                else
-                {
-                    System.out.print("#\t");
+                    iCount = 1;
                 }
             }
             System.out.println();
+            
         }
         System.out.println();
     }
@@ -77,19 +90,3 @@ class program29_1
   
 }
 
-/////////////////////////////////////////////////////////////////////
-//
-// Input / Output
-// 
-//  Input:
-//  rows : 4
-//  columns : 4
-//
-//  Output:
-// 
-//   *   #   #   #
-//   *   *   #   #
-//   *   *   *   #
-//   *   *   *   *
-//   
-/////////////////////////////////////////////////////////////////////
