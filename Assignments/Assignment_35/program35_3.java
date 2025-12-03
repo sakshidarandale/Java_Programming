@@ -6,39 +6,48 @@
 
 import java.util.*;
 
-////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 //
-//  Function Name:  CountCapital
-//  Description:    It is used to count capital letters in a string
+//  Function Name:  Difference
+//  Description:    It is used to calculate the difference between
+//                  the number of small case and capital letters
+//                  in a string
 //  Input:          String str
 //  Output:         int 
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           27/11/2025
 //
-////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+
 
 class StringX
 
 {
-    public int CountCapital(String str)
+    public int Difference(String str)
     {
         int iCnt = 0;
-        int iCount=0;
+        int iDiff = 0, iSmall = 0, iCapital = 0;
         
         char Arr[]=str.toCharArray();
         
         for(iCnt=0;iCnt<Arr.length;iCnt++)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            if(Arr[iCnt]>='a' && Arr[iCnt]<='z')
             {
-                iCount++;
+                iSmall++;
+            }
+            else if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            {
+                iCapital++;
             }
         }
-        return iCount;
+        iDiff=iSmall-iCapital;
+        
+        return iDiff;
     }
 }
 
-class program35_1
+class program35_3
 ////////////////////////////////////////////////////////////////
 //
 //  Entry point function
@@ -56,9 +65,9 @@ class program35_1
         
         StringX strobj=new StringX();
         
-        iRet=strobj.CountCapital(sobj);
+        iRet=strobj.Difference(sobj);
         
-        System.out.println("Number of Capital Letters in string are : " +iRet);
+        System.out.println("Difference is : " +iRet);
        
     }
    

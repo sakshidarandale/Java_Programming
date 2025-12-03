@@ -8,10 +8,11 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  CountCapital
-//  Description:    It is used to count capital letters in a string
+//  Function Name:  ReverseDisplay
+//  Description:    It is used to display the given string in reverse
+//                  order
 //  Input:          String str
-//  Output:         int 
+//  Output:         void 
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           27/11/2025
 //
@@ -20,25 +21,19 @@ import java.util.*;
 class StringX
 
 {
-    public int CountCapital(String str)
+    public void ReverseDisplay(String str)
     {
         int iCnt = 0;
-        int iCount=0;
-        
         char Arr[]=str.toCharArray();
         
-        for(iCnt=0;iCnt<Arr.length;iCnt++)
+        for(iCnt=Arr.length-1;iCnt>=0;iCnt--)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
-            {
-                iCount++;
-            }
+            System.out.print(Arr[iCnt]);
         }
-        return iCount;
     }
 }
 
-class program35_1
+class program35_5
 ////////////////////////////////////////////////////////////////
 //
 //  Entry point function
@@ -47,19 +42,15 @@ class program35_1
 {
     public static void main(String A[])
     {
-        int iRet = 0;
         
         Scanner scanobj = new Scanner(System.in);
         
-        System.out.println("Enter the string : ");
-        String sobj=scanobj.nextLine();
+        System.out.println("Enter String : ");
+        String sobj = scanobj.nextLine();                  
         
-        StringX strobj=new StringX();
+        StringX strobj = new StringX();  
         
-        iRet=strobj.CountCapital(sobj);
-        
-        System.out.println("Number of Capital Letters in string are : " +iRet);
-       
+        strobj.ReverseDisplay(sobj);
     }
    
 }   

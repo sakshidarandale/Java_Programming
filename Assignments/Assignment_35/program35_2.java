@@ -8,8 +8,8 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  CountCapital
-//  Description:    It is used to count capital letters in a string
+//  Function Name:  CountSmall
+//  Description:    It is used to count small letters in a string
 //  Input:          String str
 //  Output:         int 
 //  Author:         Sakshi Ravindra Darandale
@@ -20,7 +20,7 @@ import java.util.*;
 class StringX
 
 {
-    public int CountCapital(String str)
+    public int CountSmall(String str)
     {
         int iCnt = 0;
         int iCount=0;
@@ -29,7 +29,7 @@ class StringX
         
         for(iCnt=0;iCnt<Arr.length;iCnt++)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            if(Arr[iCnt]>='a' && Arr[iCnt]<='z')
             {
                 iCount++;
             }
@@ -38,7 +38,7 @@ class StringX
     }
 }
 
-class program35_1
+class program35_2
 ////////////////////////////////////////////////////////////////
 //
 //  Entry point function
@@ -56,9 +56,9 @@ class program35_1
         
         StringX strobj=new StringX();
         
-        iRet=strobj.CountCapital(sobj);
+        iRet=strobj.CountSmall(sobj);
         
-        System.out.println("Number of Capital Letters in string are : " +iRet);
+        System.out.println("Number of Small Letters in string are : " +iRet);
        
     }
    
