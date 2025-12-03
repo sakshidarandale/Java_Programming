@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 //
 //  Required Packages
 //
@@ -16,14 +16,14 @@ import java.util.*;
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           27/11/2025
 //
-/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 class StringX
 {
-   public boolean CheckAlpha(char ch)
+   public boolean CheckCapital(char ch)
     {
         
-    if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
+    if(ch>='A'&&ch<='Z')
     {
         return true;
     }
@@ -33,39 +33,37 @@ class StringX
     }  
 } 
 }
-
-class program33_1
-
-////////////////////////////////////////////////////////////////////
+class program33_2
+{
+//////////////////////////////////////////////////////////////////////
 //
 //  Entry point function
 //
-///////////////////////////////////////////////////////////////////
-
-{
+/////////////////////////////////////////////////////////////////////
     public static void main(String A[])
     {
-        char cValue = '\0';
-        boolean bRet = false;
-
-        Scanner scanobj = new Scanner(System.in);
-
-        System.out.println("Enter character : ");
+        
+        char cValue='\0';
+        boolean bRet=false;
+        
+        Scanner scanobj=new Scanner(System.in);
+        
+        System.out.println("Enter the character : ");
         cValue = scanobj.next().charAt(0);
-
+        
         StringX strobj = new StringX();
-
-        bRet = strobj.CheckAlpha(cValue);
-
-        if(bRet == true)
+        
+        bRet=strobj.CheckCapital(cValue);
+        
+        if(bRet==true)
         {
-            System.out.println("It is a Character");
+            System.out.println("It is a Capital Character");
         }
         else
         {
-            System.out.println("It is not a Character");
+            System.out.println("It is not a Capital Character");
         }
-    }        
-} 
-
+        
+    } 
+}
     
