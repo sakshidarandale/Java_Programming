@@ -2,32 +2,50 @@
     iRow : 4
     iCol : 4
 
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
+    #   #   #   #
+    *   #   #   #
+    *   *   #   #
+    *   *   *   #
+    
+
 */
 
 import java.util.Scanner;
 
 class Pattern
 {
+    // Filter for square matrix
     public void Display(int iRow, int iCol)
     {
         int i = 0, j = 0;
 
-        for(i = 1; i <= iRow; i++)
+        if(iRow != iCol)
         {
+            System.out.println("Invalid Input");
+            System.out.println("Row number and column number should be same");
+            
+            return;
+        }
+
+        for(i = 1; i <= iRow; i++)
+        {         
             for(j = 1; j <= iCol; j++)
             {
-                System.out.print(j+"\t");
+                if(i > j)
+                {
+                    System.out.printf("*\t");
+                }
+                else
+                {
+                    System.out.printf("#\t");
+                }
             }
             System.out.println();
         }
     }
 }
 
-class program166
+class program190
 {
     public static void main(String A[])
     {

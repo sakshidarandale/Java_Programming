@@ -2,10 +2,11 @@
     iRow : 4
     iCol : 4
 
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
+    *   #   *   #
+    *   #   *   #
+    *   #   *   #
+    *   #   *   #
+    
 */
 
 import java.util.Scanner;
@@ -20,14 +21,21 @@ class Pattern
         {
             for(j = 1; j <= iCol; j++)
             {
-                System.out.print(j+"\t");
+                if((j % 2) == 0)
+                {
+                    System.out.print("#\t");
+                }
+                else
+                {
+                    System.out.print("*\t");
+                }
             }
             System.out.println();
         }
     }
 }
 
-class program166
+class program170
 {
     public static void main(String A[])
     {

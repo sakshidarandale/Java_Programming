@@ -2,10 +2,11 @@
     iRow : 4
     iCol : 4
 
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
-    1   2   3   4
+    a   b   c   d
+    1   2   3   4   
+    a   b   c   d
+    1   2   3   4  
+
 */
 
 import java.util.Scanner;
@@ -15,19 +16,27 @@ class Pattern
     public void Display(int iRow, int iCol)
     {
         int i = 0, j = 0;
+        char ch = '\0';
 
         for(i = 1; i <= iRow; i++)
-        {
-            for(j = 1; j <= iCol; j++)
+        {         
+            for(j = 1, ch = 'a'; j <= iCol; j++, ch++)
             {
-                System.out.print(j+"\t");
+                if((i % 2) == 0)
+                {
+                    System.out.printf("%d\t",j);
+                }
+                else
+                {
+                    System.out.printf("%c\t",ch);
+                }
             }
             System.out.println();
         }
     }
 }
 
-class program166
+class program182
 {
     public static void main(String A[])
     {
