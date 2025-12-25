@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-class program292
+class program294
 {
     public static void main(String A[])
     {
@@ -12,6 +12,11 @@ class program292
         {
             System.out.println(no);
         }
+        
+        int index=Arrays.binarySearch(Arr,90);
+        
+        System.out.println("Element found at : " +index);
+        
         
     }
 }
