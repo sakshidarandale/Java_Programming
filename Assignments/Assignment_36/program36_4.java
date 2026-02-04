@@ -8,11 +8,10 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  toLowerCaseX
-//  Description:    It is used to convert all uppercase letters in
-//                  a string to lowercase
+//  Function Name:  DisplayDigits
+//  Description:    It is used to display only digits from string
 //  Input:          String str
-//  Output:         String (Updates string to lowercase)
+//  Output:         void
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           30/11/2025
 //
@@ -20,7 +19,7 @@ import java.util.*;
 
 class StringX
 {
-    public String toLowerCaseX(String str)
+    public void DisplayDigits(String str)
     {
         int iCnt=0;
         
@@ -28,18 +27,14 @@ class StringX
         
         for(iCnt=0;iCnt<Arr.length;iCnt++)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            if(Arr[iCnt]>='0' && Arr[iCnt]<='9')
             {
-                Arr[iCnt]=(char)(Arr[iCnt] + 32);
-            }                          
-        }
- 
-       return new String(Arr);  
-       
+               System.out.print(Arr[iCnt]);
+            }
+        } 
     }
 }
-
-class program36_1
+class program36_4
 
 ////////////////////////////////////////////////////////////////
 //
@@ -50,8 +45,6 @@ class program36_1
 {
     public static void main(String A[])
     {    
-        String sRet=null;
-        
         Scanner scanobj = new Scanner(System.in);
         
         System.out.println("Enter String : ");
@@ -59,9 +52,7 @@ class program36_1
         
         StringX strobj = new StringX();  
         
-        sRet=strobj.toLowerCaseX(sobj);  
+        strobj.DisplayDigits(sobj);  
         
-        System.out.println("Updated String : " +sRet);
- 
     }
 }

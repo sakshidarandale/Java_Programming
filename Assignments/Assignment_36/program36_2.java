@@ -8,9 +8,9 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  toLowerCaseX
-//  Description:    It is used to convert all uppercase letters in
-//                  a string to lowercase
+//  Function Name:  toUpperCaseX
+//  Description:    It is used to convert all lowercase letters in
+//                  a string to uppercasecase
 //  Input:          String str
 //  Output:         String (Updates string to lowercase)
 //  Author:         Sakshi Ravindra Darandale
@@ -20,7 +20,7 @@ import java.util.*;
 
 class StringX
 {
-    public String toLowerCaseX(String str)
+    public String toUpperCaseX(String str)
     {
         int iCnt=0;
         
@@ -28,9 +28,9 @@ class StringX
         
         for(iCnt=0;iCnt<Arr.length;iCnt++)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            if(Arr[iCnt]>='a' && Arr[iCnt]<='z')
             {
-                Arr[iCnt]=(char)(Arr[iCnt] + 32);
+                Arr[iCnt]=(char)(Arr[iCnt] - 32);
             }                          
         }
  
@@ -39,7 +39,7 @@ class StringX
     }
 }
 
-class program36_1
+class program36_2
 
 ////////////////////////////////////////////////////////////////
 //
@@ -59,7 +59,7 @@ class program36_1
         
         StringX strobj = new StringX();  
         
-        sRet=strobj.toLowerCaseX(sobj);  
+        sRet=strobj.toUpperCaseX(sobj);  
         
         System.out.println("Updated String : " +sRet);
  

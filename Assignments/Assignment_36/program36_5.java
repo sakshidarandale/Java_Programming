@@ -8,11 +8,11 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  toLowerCaseX
-//  Description:    It is used to convert all uppercase letters in
-//                  a string to lowercase
+//  Function Name:  CountSpaces
+//  Description:    It is used to count the number of space
+//                  characters present in the given string
 //  Input:          String str
-//  Output:         String (Updates string to lowercase)
+//  Output:         void
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           30/11/2025
 //
@@ -20,26 +20,25 @@ import java.util.*;
 
 class StringX
 {
-    public String toLowerCaseX(String str)
+    public int CountSpaces(String str)
     {
         int iCnt=0;
+        int iCount=0;
         
         char Arr[]=str.toCharArray();
         
         for(iCnt=0;iCnt<Arr.length;iCnt++)
         {
-            if(Arr[iCnt]>='A' && Arr[iCnt]<='Z')
+            if(Arr[iCnt]==' ')
             {
-                Arr[iCnt]=(char)(Arr[iCnt] + 32);
-            }                          
-        }
- 
-       return new String(Arr);  
-       
+               iCount++;
+            }
+        } 
+        return iCount;
     }
+    
 }
-
-class program36_1
+class program36_5
 
 ////////////////////////////////////////////////////////////////
 //
@@ -50,8 +49,7 @@ class program36_1
 {
     public static void main(String A[])
     {    
-        String sRet=null;
-        
+        int iRet=0;
         Scanner scanobj = new Scanner(System.in);
         
         System.out.println("Enter String : ");
@@ -59,9 +57,9 @@ class program36_1
         
         StringX strobj = new StringX();  
         
-        sRet=strobj.toLowerCaseX(sobj);  
+        iRet=strobj.CountSpaces(sobj);  
         
-        System.out.println("Updated String : " +sRet);
- 
+        System.out.println("Number of whitespaces are : " +iRet);
+        
     }
 }
