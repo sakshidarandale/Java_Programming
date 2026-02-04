@@ -7,58 +7,45 @@
 import java.io.*;
 import java.util.*;
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program56_1
+//  Class Name     : program56_4
 //  Function Name  : main
-//  Description    : Creates a new file and writes default text if the file does not exist
+//  Description    : Creates a new file if it does not already exist
 //  Input          : File name
-//  Output         : New file created with sample text
+//  Output         : File creation status message
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 02/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program56_1
+class program56_4
 {
-    public static void main(String A[]) throws Exception
-    {
-        
-        boolean bRet = false;
 
+    public static void main(String A[])  throws Exception
+    {
         String FileName = null;
 
-        byte Buffer[] = new byte[1024];
-
         Scanner sobj = new Scanner(System.in);
-        
-        System.out.println("Enter the name of file : ");
+
+        System.out.println("Enter the name of file");
         FileName = sobj.nextLine();
 
         File fobj = new File(FileName);
 
-        if(fobj.exists())
+        if(fobj.createNewFile())
         {
-            System.out.println("File already present");
+            System.out.println("File gets created succesfully");
         }
-
         else
         {
-            FileOutputStream foobj = new FileOutputStream(fobj);
-            String str = "Jay Ganesh...";
-
-            byte Arr[] = str.getBytes();
-
-            foobj.write(Arr);
-
-            System.out.println("File opened succesfully");
-
-            foobj.close();
+            if(fobj.exists())
+            {
+                System.out.println("The file already exists");
+            }
+            
         }
 
         sobj.close();
-           
     }
-
 }
