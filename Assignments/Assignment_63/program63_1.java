@@ -19,7 +19,7 @@ import java.io.*;
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program63_4
+class program63_1
 {
     public static void main(String A[]) throws Exception
     {
