@@ -9,9 +9,9 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program61_1
+//  Class Name     : program61_2
 //  Function Name  : main
-//  Description    : Copies a file byte by byte from source to destination
+//  Description    : Copies a file using byte array buffer from source to destination
 //  Input          : Source file name, Destination file name
 //  Output         : Data copied to destination file
 //  Author         : Sakshi Ravindra Darandale
@@ -19,7 +19,7 @@ import java.util.*;
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program61_1
+class program61_2
 {
     public static void main(String A[]) throws Exception
     {
@@ -35,7 +35,7 @@ class program61_1
         String FileNameSrc = null;
         String FileNameDest = null;
 
-        int Byte = 0;
+        byte Buffer[] = new byte[1024];
         
         Scanner sobj = new Scanner(System.in);
 
@@ -57,11 +57,11 @@ class program61_1
            FileInputStream fiobj = new FileInputStream(fobjsrc);
            FileOutputStream foobj = new FileOutputStream(fobjdest);
 
-           while((iRet = fiobj.read()) != -1)
+           while((iRet = fiobj.read(Buffer)) != -1)
            {
-                foobj.write(iRet);
+                foobj.write(Buffer,0 ,iRet);
            }
-           
+
            System.out.println("File copied successfully");
            
            fiobj.close();
