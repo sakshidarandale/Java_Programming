@@ -7,19 +7,19 @@
 import java.util.*;
 import java.io.*;
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name   : program63_1
-//  Description    : Accepts source and destination file names from user and
-//                   copies data from source file to destination file .
+//  Class Name     : program63_5
+//  Function Name  : main
+//  Description    : Copies first 1 KB data from source file into destination file
 //  Input          : String (Source file name), String (Destination file name)
-//  Output         : Destination file containing copied data
+//  Output         : Copies first 1 KB data into destination file
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 03/02/2026
-//
-////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program63_1
+class program63_5
 {
     public static void main(String A[]) throws Exception
     {
@@ -45,20 +45,19 @@ class program63_1
             File fobjdest = new File(DestFile);
 
             FileInputStream fiobj = new FileInputStream(fobjsrc);
-            BufferedInputStream biobj = new BufferedInputStream(fiobj);
-
             FileOutputStream foobj = new FileOutputStream(DestFile);
-            BufferedOutputStream boobj = new BufferedOutputStream(foobj);
 
-            while((iRet = biobj.read(Buffer)) != -1)
+            iRet = fiobj.read(Buffer);
+
+            if(iRet > 0)
             {
-                boobj.write(Buffer,0,iRet);
+                foobj.write(Buffer,0,iRet);
             }
 
-            System.out.println("File copied successfully");
+            System.out.println("First 1KB data copied successfully");
 
-            biobj.close();
-            boobj.close();
+            fiobj.close();
+            foobj.close();
         }
         else
         {
