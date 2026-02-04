@@ -9,19 +9,18 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program59_1
+//  Class Name     : program59_5
 //  Function Name  : main
-//  Description    : Displays all file names present in the given directory
+//  Description    : Displays file names along with their absolute paths
 //  Input          : Directory name
-//  Output         : List of files in the directory
+//  Output         : File names and their full paths
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 02/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program59_1
+class program59_5
 {
-
     public static void main(String A[]) throws Exception
     {
 
@@ -45,9 +44,8 @@ class program59_1
 
             for(int i =0; i<fArr.length; i++)
             {
-               System.out.println("File Name : " +fArr[i].getName());
-            }
-           
+               System.out.println("File Name : " +fArr[i].getName()  +  "  File Path : " +fArr[i].getAbsolutePath());
+            } 
         }
 
         else

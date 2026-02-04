@@ -9,22 +9,23 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program59_1
+//  Class Name     : program59_3
 //  Function Name  : main
-//  Description    : Displays all file names present in the given directory
+//  Description    : Displays names of all sub-directories in the given directory
 //  Input          : Directory name
-//  Output         : List of files in the directory
+//  Output         : List of sub-directories or message if none found
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 02/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program59_1
+class program59_3
 {
 
     public static void main(String A[]) throws Exception
     {
 
+        boolean bRet = false;
         File fobj = null;
         String DirectoryName= null;
         
@@ -37,15 +38,20 @@ class program59_1
 
         if((fobj.exists()) && (fobj.isDirectory()))
         {
-            System.out.println("Directory is present");
-
+        
             File fArr[] = fobj.listFiles();
-
-            System.out.println("Number of files in directory are : " +fArr.length);
 
             for(int i =0; i<fArr.length; i++)
             {
-               System.out.println("File Name : " +fArr[i].getName());
+                if(fArr[i].isDirectory() )  //sub-directories
+                {
+                    System.out.println("SubDirectory Name : " +fArr[i].getName());
+                    bRet = true;
+                }
+            }
+            if(bRet == false)
+            {
+                System.out.println("No subdirectories present");
             }
            
         }
@@ -54,9 +60,8 @@ class program59_1
         {
             System.out.println("There is no such directory");
         }
-
+            
         sobj.close();
-             
     }
 
 }

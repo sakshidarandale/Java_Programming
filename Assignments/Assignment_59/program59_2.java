@@ -9,17 +9,17 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program59_1
+//  Class Name     : program59_2
 //  Function Name  : main
-//  Description    : Displays all file names present in the given directory
+//  Description    : Displays only regular file names from the given directory
 //  Input          : Directory name
-//  Output         : List of files in the directory
+//  Output         : List of regular files in the directory
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 02/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program59_1
+class program59_2
 {
 
     public static void main(String A[]) throws Exception
@@ -37,15 +37,16 @@ class program59_1
 
         if((fobj.exists()) && (fobj.isDirectory()))
         {
-            System.out.println("Directory is present");
-
+        
             File fArr[] = fobj.listFiles();
-
-            System.out.println("Number of files in directory are : " +fArr.length);
 
             for(int i =0; i<fArr.length; i++)
             {
-               System.out.println("File Name : " +fArr[i].getName());
+                if(fArr[i].isFile())  //Only Regular Files
+                {
+                    System.out.println("File Name : " +fArr[i].getName());
+                }
+               
             }
            
         }
