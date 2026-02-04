@@ -9,45 +9,67 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program58_1
+//  Class Name     : program58_3
 //  Function Name  : main
-//  Description    : Displays names and count of regular files in a directory
-//  Input          : Directory name
-//  Output         : List of regular files and their count
+//  Description    : Copies data of all files from a directory into a single file
+//  Input          : Directory name, Output file name
+//  Output         : File containing combined data of all files
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 02/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program58_1
+class program58_3
 {
 
     public static void main(String A[])  throws Exception
     {
+        int iRet = 0;
+        byte Buffer[] = new byte[1024];
        
         Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter the name of directory");
         String DirectoryName = sobj.nextLine();
 
+        System.out.println("Enter the name of file");
+        String PackName = sobj.nextLine();
+
         File fobj = new File(DirectoryName);
 
         if((fobj.exists()) && (fobj.isDirectory()))
         {
+            File packobj = new File(PackName);
+
+            packobj.createNewFile();
+
+            FileOutputStream foobj = new FileOutputStream(packobj);
+
+            FileInputStream fiobj = null;
+
             System.out.println("Directory is present");
 
             File fArr[] = fobj.listFiles();
 
-                int iCount = 0;
-                for(int i = 0; i<fArr.length; i++)
+            System.out.println("Number of files in the directory are : " +fArr.length);
+
+            for(int i = 0; i<fArr.length; i++)
+            {
+                fiobj = new FileInputStream(fArr[i]);
+
+                System.out.println("File name : " +fArr[i].getName() + " File size : " +fArr[i].length() + "bytes");
+
+                while((iRet = fiobj.read(Buffer)) != -1)
                 {
-                    if(fArr[i].isFile())   //To check regular file
-                    {
-                        iCount++;
-                        System.out.println("File Name : " +fArr[i].getName());
-                    }  
+                    foobj.write(Buffer,0 ,iRet);
                 }
-                System.out.println("Number of regular files in directory are : " +iCount);
+
+                fiobj.close();
+            }
+
+            System.out.println("Data gets copied successfully");
+           
+            foobj.close();
         }
         
         else
