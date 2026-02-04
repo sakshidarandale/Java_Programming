@@ -9,25 +9,27 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program60_1
+//  Class Name     : program60_3
 //  Function Name  : main
-//  Description    : Calculates the total size of all files in a directory
+//  Description    : Finds the smallest file in a directory and displays its size
 //  Input          : Directory name
-//  Output         : Total size of files in bytes
+//  Output         : Smallest file name and its size in bytes
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 03/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program60_1
+class program60_3
 {
     public static void main(String A[]) throws Exception
     {
 
         File fobj = null;
         String DirectoryName= null;
-        long TotalSize = 0;
-        
+
+        long MinSize = Long.MAX_VALUE;
+        File SmallestFile = null;
+   
         Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter the name of directory");
@@ -45,10 +47,22 @@ class program60_1
             {
                 if(fArr[i].isFile())
                 {
-                    TotalSize = TotalSize + fArr[i].length();
+                    if(MinSize > fArr[i].length())
+                    {
+                        MinSize = fArr[i].length();
+                        SmallestFile = fArr[i];
+                    }
                 }
             } 
-            System.out.println("Total size of all files : " + TotalSize + "bytes");
+            if(SmallestFile != null)
+            {
+                System.out.println("Smallest File Name : " + SmallestFile.getName() + " File Size : " +MinSize + " bytes ");
+            }
+            else
+            {
+                System.out.println("No files present in directory");
+            }
+
         }
 
         else

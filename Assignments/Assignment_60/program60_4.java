@@ -9,25 +9,26 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program60_1
+//  Class Name     : program60_4
 //  Function Name  : main
-//  Description    : Calculates the total size of all files in a directory
+//  Description    : Displays all .txt files present in a directory
 //  Input          : Directory name
-//  Output         : Total size of files in bytes
+//  Output         : Names of .txt files in the directory
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 03/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program60_1
+class program60_4
 {
     public static void main(String A[]) throws Exception
     {
 
+        boolean bFlag = false;
+
         File fobj = null;
         String DirectoryName= null;
-        long TotalSize = 0;
-        
+
         Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter the name of directory");
@@ -45,10 +46,18 @@ class program60_1
             {
                 if(fArr[i].isFile())
                 {
-                    TotalSize = TotalSize + fArr[i].length();
+                    if(fArr[i].getName().endsWith(".txt"))
+                    {
+                        System.out.println("File Name : " + fArr[i].getName());
+                        bFlag = true;
+                    }
                 }
+            }
+            if(bFlag == false)
+            {
+                System.out.println("There is  no such file ");
             } 
-            System.out.println("Total size of all files : " + TotalSize + "bytes");
+            
         }
 
         else
@@ -57,7 +66,6 @@ class program60_1
         }
 
         sobj.close();
-             
-    }
 
+    }       
 }

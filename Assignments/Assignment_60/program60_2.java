@@ -9,24 +9,27 @@ import java.io.*;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program60_1
+//  Class Name     : program60_2
 //  Function Name  : main
-//  Description    : Calculates the total size of all files in a directory
+//  Description    : Finds the largest file in a directory and displays its size
 //  Input          : Directory name
-//  Output         : Total size of files in bytes
+//  Output         : Largest file name and its size in bytes
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 03/02/2026
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-class program60_1
+class program60_2
 {
     public static void main(String A[]) throws Exception
     {
 
         File fobj = null;
         String DirectoryName= null;
-        long TotalSize = 0;
+
+        long MaxSize = 0;
+        File LargestFile = null;
+
         
         Scanner sobj = new Scanner(System.in);
 
@@ -45,10 +48,22 @@ class program60_1
             {
                 if(fArr[i].isFile())
                 {
-                    TotalSize = TotalSize + fArr[i].length();
+                    if(MaxSize < fArr[i].length())
+                    {
+                        MaxSize = fArr[i].length();
+                        LargestFile = fArr[i];
+                    }
                 }
             } 
-            System.out.println("Total size of all files : " + TotalSize + "bytes");
+            if(LargestFile != null)
+            {
+                System.out.println("Largest File Name : " + LargestFile.getName() + " File Size : " +MaxSize + "bytes");
+            }
+            else
+            {
+                System.out.println("No files present in directory");
+            }
+
         }
 
         else
