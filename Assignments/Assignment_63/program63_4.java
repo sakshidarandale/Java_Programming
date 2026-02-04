@@ -9,7 +9,7 @@ import java.io.*;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name     : program63_1
+//  Class Name     : program63_4
 //  Function Name  : main
 //  Description    : Accepts directory name from user and creates a file
 //                   named Combined.txt which stores data of all regular
@@ -74,5 +74,6 @@ class program63_1
         sobj.close();
              
     }
+
 
 }
