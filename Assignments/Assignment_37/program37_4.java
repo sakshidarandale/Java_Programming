@@ -6,39 +6,37 @@
 
 import java.util.*;
 
-////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
-//  Function Name:  CheckChar
-//  Description:    It is used to check whether the entered 
-//                  character is present in the given string or not
+//  Function Name:  LastChar
+//  Description:    It is used to return the index of last
+//                  occurrence of the entered character in the string.
 //  Input:          String str,char ch
-//  Output:         boolean(true/false)
+//  Output:         int
 //  Author:         Sakshi Ravindra Darandale
 //  Date:           30/11/2025
 //
-////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 
 class StringX
 {
-    public boolean CheckChar(String str,char ch)
+    public int LastChar(String str,char ch)
     {
         int iCnt=0;
-        boolean bflag=false;
-        
+
         char Arr[]=str.toCharArray();
         
-        for(iCnt=0;iCnt<Arr.length;iCnt++)
+        for(iCnt=Arr.length-1;iCnt>=0;iCnt--)
         {
             if(Arr[iCnt]==ch)
             {
-               bflag=true;
+               return iCnt;
             }
-        } 
-        return bflag;
-    }
-    
+        }
+        return -1; 
+    }  
 }
-class program37_1
+class program37_4
 
 ////////////////////////////////////////////////////////////////
 //
@@ -50,7 +48,7 @@ class program37_1
     public static void main(String A[])
     {    
         char cValue='\0';
-        boolean bRet=true;
+        int iRet=0;
         Scanner scanobj = new Scanner(System.in);
         
         System.out.println("Enter String : ");
@@ -61,16 +59,10 @@ class program37_1
         
         StringX strobj = new StringX();  
         
-        bRet=strobj.CheckChar(sobj,cValue);  
+        iRet=strobj.LastChar(sobj,cValue);  
         
-        if(bRet==true)
-        {
-            System.out.println(cValue+ " is present in string");
-        }
-        else
-        {
-            System.out.println(cValue+ " is not present in string");
-        }
+        System.out.println("Index of character is : " +iRet);
+        
         
     }
 }

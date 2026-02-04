@@ -8,9 +8,9 @@ import java.util.*;
 
 ////////////////////////////////////////////////////////////////
 //
-//  Function Name:  CheckChar
-//  Description:    It is used to check whether the entered 
-//                  character is present in the given string or not
+//  Function Name:  CountChar
+//  Description:    It is used to count the frequency of the 
+//                  entered character in the given string
 //  Input:          String str,char ch
 //  Output:         boolean(true/false)
 //  Author:         Sakshi Ravindra Darandale
@@ -20,10 +20,10 @@ import java.util.*;
 
 class StringX
 {
-    public boolean CheckChar(String str,char ch)
+    public int CountChar(String str,char ch)
     {
         int iCnt=0;
-        boolean bflag=false;
+        int iCount=0;
         
         char Arr[]=str.toCharArray();
         
@@ -31,14 +31,14 @@ class StringX
         {
             if(Arr[iCnt]==ch)
             {
-               bflag=true;
+               iCount++;
             }
         } 
-        return bflag;
+        return iCount;
     }
     
 }
-class program37_1
+class program37_2
 
 ////////////////////////////////////////////////////////////////
 //
@@ -50,7 +50,7 @@ class program37_1
     public static void main(String A[])
     {    
         char cValue='\0';
-        boolean bRet=true;
+        int iRet=0;
         Scanner scanobj = new Scanner(System.in);
         
         System.out.println("Enter String : ");
@@ -61,16 +61,10 @@ class program37_1
         
         StringX strobj = new StringX();  
         
-        bRet=strobj.CheckChar(sobj,cValue);  
+        iRet=strobj.CountChar(sobj,cValue);  
         
-        if(bRet==true)
-        {
-            System.out.println(cValue+ " is present in string");
-        }
-        else
-        {
-            System.out.println(cValue+ " is not present in string");
-        }
+        System.out.println("Frequency of character is : " +iRet);
+        
         
     }
 }
