@@ -9,20 +9,21 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name  : BoolCheckBit
-//  Description    : Checks if the 15th bit of a given integer is ON
+//  Description    : Checks if the first(1) and last bit(32) is ON Or OFF.
 //  Input          : Integer 
 //  Output         : Boolean (true/false)
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 06/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
+
 class Logic
 {
-    boolean BoolCheckBit(int iNo)
+    boolean BoolCheckBit(long iNo)
     {
-        int iMask = 0X1, iResult = 0;
+        long iMask = 0X1, iResult = 0;
 
-        iMask = iMask << 14;
+        iMask = (iMask << 0) | (iMask << 31);
 
         iResult = iNo & iMask;
 
@@ -38,9 +39,7 @@ class Logic
 
     }
 }
-
-
-class program64_1
+class program64_5
 {
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -51,13 +50,13 @@ class program64_1
     public static void main(String A[]) 
     {
     
-        int iValue = 0;
+        long iValue = 0;
         boolean bRet = false;
 
         Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter the number");
-        iValue = sobj.nextInt();
+        iValue = sobj.nextLong();
 
         Logic lobj = new Logic();
 
@@ -65,12 +64,12 @@ class program64_1
 
         if(bRet == true)
         {
-            System.out.println("15 th bit is ON");
+            System.out.println("first and last  bits is ON");
         }
 
         else 
         {
-            System.out.println(" 15 th bit is OFF");
+            System.out.println("first and last bits is OFF");
         }
         
     }

@@ -9,20 +9,21 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name  : BoolCheckBit
-//  Description    : Checks if the 15th bit of a given integer is ON
+//  Description    : Checks if the 5th & 18th bit of a given integer is ON Or OFF
 //  Input          : Integer 
 //  Output         : Boolean (true/false)
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 06/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
+
 class Logic
 {
     boolean BoolCheckBit(int iNo)
     {
         int iMask = 0X1, iResult = 0;
 
-        iMask = iMask << 14;
+        iMask = (iMask << 4) | (iMask << 17);
 
         iResult = iNo & iMask;
 
@@ -38,16 +39,14 @@ class Logic
 
     }
 }
-
-
-class program64_1
+class program64_2
 {
-
 //////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Entry point function
 //
 //////////////////////////////////////////////////////////////////////////////////////////
+
     public static void main(String A[]) 
     {
     
@@ -65,12 +64,12 @@ class program64_1
 
         if(bRet == true)
         {
-            System.out.println("15 th bit is ON");
+            System.out.println("5 th and 18 th bit is ON");
         }
 
         else 
         {
-            System.out.println(" 15 th bit is OFF");
+            System.out.println(" 5 th and 18 th bit is OFF");
         }
         
     }

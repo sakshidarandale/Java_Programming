@@ -9,20 +9,21 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name  : BoolCheckBit
-//  Description    : Checks if the 15th bit of a given integer is ON
+//  Description    : Checks if the 7 th and 15 th and 21 st and 28 th bit of a given integer is ON Or OFF
 //  Input          : Integer 
 //  Output         : Boolean (true/false)
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 06/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
+
 class Logic
 {
     boolean BoolCheckBit(int iNo)
     {
         int iMask = 0X1, iResult = 0;
 
-        iMask = iMask << 14;
+        iMask = (iMask << 6) | (iMask << 14) | (iMask << 20) | (iMask << 27);
 
         iResult = iNo & iMask;
 
@@ -38,12 +39,9 @@ class Logic
 
     }
 }
-
-
-class program64_1
+class program64_3
 {
-
-//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Entry point function
 //
@@ -65,12 +63,12 @@ class program64_1
 
         if(bRet == true)
         {
-            System.out.println("15 th bit is ON");
+            System.out.println("7 th and 15 th and 21 st and 28 th bit is ON");
         }
 
         else 
         {
-            System.out.println(" 15 th bit is OFF");
+            System.out.println("7 th and 15 th and 21 st and 28 th bit is OFF");
         }
         
     }
