@@ -1,4 +1,7 @@
 
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Required Packages
@@ -9,10 +12,10 @@ import java.util.*;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Function Name  : BoolChkBit
-//  Description    : Checks whether the bit at a given position is ON (1) or OFF (0).
+//  Function Name  : OnBit
+//  Description    : Turns ON the bit at a given position.
 //  Input          : Integer 
-//  Output         : Boolean(true/false)
+//  Output         : Integer
 //  Author         : Sakshi Ravindra Darandale
 //  Date           : 06/02/2026
 //
@@ -20,26 +23,19 @@ import java.util.*;
 
 class Logic
 {
-    boolean BoolChkBit(long iNo,int iPos)
+    long OnBit(long iNo,int iPos)
     {
         long iMask = 0X1, iResult = 0;
 
         iMask = (iMask << iPos - 1);
 
-        iResult = iNo & iMask;
+        iResult = iNo | iMask;
 
-        if(iResult == iMask)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    
+        return iResult;
+        
     }
 }
-class program66_1
+class program66_3
 {
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +48,7 @@ class program66_1
     
         long iValue = 0;
         int ipos = 0;
-        boolean bRet = false;
+        long iRet = 0;
 
         Scanner sobj = new Scanner(System.in);
 
@@ -64,16 +60,9 @@ class program66_1
 
         Logic lobj = new Logic();
 
-        bRet = lobj.BoolChkBit(iValue,ipos);
+        iRet = lobj.OnBit(iValue,ipos);
 
-        if(bRet == true)
-        {
-            System.out.println(ipos + "th bit is ON");
-        }
-        else
-        {
-            System.out.println(ipos + "th bit is OFF");
-        }
+        System.out.println("The modified number is : " +iRet);
     
     }
     
