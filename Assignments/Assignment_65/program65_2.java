@@ -9,7 +9,7 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name  : OffBit
-//  Description    : Turns OFF the 7th bit of the given integer and returns modified number.
+//  Description    : Turns OFF the 7th and 10th bit of the given integer and returns modified number.
 //  Input          : Integer 
 //  Output         : Integer
 //  Author         : Sakshi Ravindra Darandale
@@ -23,7 +23,7 @@ class Logic
     {
         long iMask = 0X1, iResult = 0;
 
-        iMask = ~(iMask << 6);
+        iMask = ~((iMask << 6) | (iMask << 9));
 
         iResult = iNo & iMask;
 
@@ -31,7 +31,7 @@ class Logic
     
     }
 }
-class program65_1
+class program65_2
 {
 
 //////////////////////////////////////////////////////////////////////////////////////////

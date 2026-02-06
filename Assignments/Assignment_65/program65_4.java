@@ -1,3 +1,6 @@
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Required Packages
@@ -8,8 +11,9 @@ import java.util.*;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Function Name  : OffBit
-//  Description    : Turns OFF the 7th bit of the given integer and returns modified number.
+//  Function Name  : ToggleBit
+//  Description    : Toggles the 7th and 10th bits of the given integer and returns modified number. 
+//                   If the bit was 0, it becomes 1; if it was 1, it becomes 0.
 //  Input          : Integer 
 //  Output         : Integer
 //  Author         : Sakshi Ravindra Darandale
@@ -19,19 +23,19 @@ import java.util.*;
 
 class Logic
 {
-    long OffBit(long iNo)
+    long ToggleBit(long iNo)
     {
         long iMask = 0X1, iResult = 0;
 
-        iMask = ~(iMask << 6);
+        iMask = (iMask << 6) | (iMask << 9);
 
-        iResult = iNo & iMask;
+        iResult = iNo ^ iMask;
 
         return iResult;
     
     }
 }
-class program65_1
+class program65_4
 {
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -52,11 +56,10 @@ class program65_1
 
         Logic lobj = new Logic();
 
-        iRet = lobj.OffBit(iValue);
+        iRet = lobj.ToggleBit(iValue);
 
         System.out.println("The modified number is : " +iRet);
-
-    
+        
     }
     
 }
