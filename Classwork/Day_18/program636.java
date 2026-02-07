@@ -1,11 +1,11 @@
-//4th bit OFF
-//1111  1111    1111    1111    1111    1111    1111    1011    
-// f    f        f       f       f       f        f      7
-//0xfffffff7
+//14th bit OFF
+//1111  1111    1111    1111    1101    1111    1111    1111    
+// f    f        f       f       d       f        f      f
+//0xffffdfff
 
 import java.util.*;
 
-class program635
+class program636
 {
     public static void main(String A[])
     {
@@ -15,7 +15,7 @@ class program635
         System.out.println("Enter the number : ");
         iNo = sobj.nextInt();
 
-        iMask = 0xfffffff7;
+        iMask = 0xffffdfff;
 
         iNo = iNo & iMask;
 
