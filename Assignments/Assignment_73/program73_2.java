@@ -9,7 +9,7 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations.
+//  Description     : Represents a 2D matrix and performs matrix operations 
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
@@ -98,27 +98,35 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : Transpose
-    //  Description    : Transposes the matrix (rows become columns and vice versa)
+    //  Function Name  : ReverseRow
+    //  Description    : Reverses the elements in each row of the matrix
     //  Input          : None
-    //  Output         : Updates matrix with transposed values
+    //  Output         : Updates matrix with rows reversed
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void Transpose()
+    public void ReverseRow()
     {
-        int i = 0, j = 0;
+        int i = 0;
+        int iStart = 0;
+        int iEnd = iCol - 1;
 
         for(i = 0; i < iRow; i++)
         {
-            for(j = i+1; j < iCol; j++)   //change j = i+1 
+            iStart = 0;       //reset iStart
+            iEnd = iCol - 1;  //reset iEnd
+
+           while(iStart < iEnd)
             {
-                int temp = Arr[i][j];
-                Arr[i][j] = Arr[j][i];
-                Arr[j][i] = temp;
-            }
+                int temp = Arr[i][iStart];
+                Arr[i][iStart] = Arr[i][iEnd];
+                Arr[i][iEnd] = temp;
+
+                iStart++;
+                iEnd--;
+            } 
         }
 
     }
@@ -126,14 +134,14 @@ class Matrix
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program73_1
-//  Description     : Entry point of program to demonstrate transposing a matrix
+//  Class Name      : program73_2
+//  Description     : Entry point of program to demonstrate reversing rows of a matrix
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program73_1
+class program73_2
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -152,9 +160,9 @@ class program73_1
         System.out.println("Original Matrix : ");
         mobj.Display();
 
-        mobj.Transpose();
+        mobj.ReverseRow();
 
-        System.out.println("Transpose Matrix : ");
+        System.out.println("Reverse Row Matrix : ");
         mobj.Display();
 
     }

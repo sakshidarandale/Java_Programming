@@ -1,15 +1,15 @@
-///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Required Packages
 //
-///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations.
+//  Description     : Represents a 2D matrix and performs matrix operations
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
@@ -98,42 +98,62 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : Transpose
-    //  Description    : Transposes the matrix (rows become columns and vice versa)
+    //  Function Name  : CheckSparse
+    //  Description    : Checks whether the matrix is a Sparse Matrix or not
     //  Input          : None
-    //  Output         : Updates matrix with transposed values
+    //  Output         : Boolean (true/false)
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void Transpose()
+    public boolean CheckSparse()
     {
         int i = 0, j = 0;
+        int zeroCount = 0;
+        int nonzeroCount = 0;
+
+        if(iRow != iCol)
+        {
+            return false;
+        }
 
         for(i = 0; i < iRow; i++)
         {
-            for(j = i+1; j < iCol; j++)   //change j = i+1 
+            for(j = 0; j < iCol; j++)
             {
-                int temp = Arr[i][j];
-                Arr[i][j] = Arr[j][i];
-                Arr[j][i] = temp;
-            }
+                if(Arr[i][j] == 0 )
+                {
+                    zeroCount++;
+                }
+                else
+                {
+                    nonzeroCount++;
+                }
+            } 
         }
 
+        if(zeroCount > nonzeroCount)
+        {
+            return true; 
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program73_1
-//  Description     : Entry point of program to demonstrate transposing a matrix
+//  Class Name      : program73_5
+//  Description     : Entry point of program to check Sparse matrix
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program73_1
+class program73_5
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -144,18 +164,22 @@ class program73_1
 
     public static void main(String A[])
     {
-        
+        boolean  bRet = false;
+
         Matrix mobj = new Matrix(4,4);
 
         mobj.Accept();
-
-        System.out.println("Original Matrix : ");
         mobj.Display();
 
-        mobj.Transpose();
+        bRet = mobj.CheckSparse();
 
-        System.out.println("Transpose Matrix : ");
-        mobj.Display();
-
+        if(bRet == true)
+        {
+            System.out.println("Matrix is a Sparse matrix");
+        }
+        else
+        {
+            System.out.println("Matrix is not a Sparse matrix");
+        }
     }
 }
