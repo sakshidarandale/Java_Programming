@@ -1,24 +1,25 @@
-///////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Required Packages
 //
-///////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations,
+//  Description     : Represents a 2D matrix and performs matrix operations.
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
-///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Matrix
 {
     public int iRow;
     public int iCol;
+    public int iNo;
     public int Arr[][];
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,16 +40,16 @@ class Matrix
         Arr = new int[iRow][iCol];
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //
     //  Function Name  : Accept
-    //  Description    : Accepts elements from user and stores them in matrix
+    //  Description    : Accepts elements from user and stores them in matrix along with the number to count
     //  Input          : Integer values
     //  Output         : None
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void Accept()
     {
@@ -56,6 +57,9 @@ class Matrix
         Scanner sobj = new Scanner(System.in);
 
         System.out.println("Enter the elements of matrix");
+
+        System.out.println("Enter the Number : ");
+        iNo = sobj.nextInt();
 
         for(i = 0; i < iRow; i++)
         {
@@ -99,45 +103,46 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : AddDiagonal
-    //  Description    : Calculates the sum of the primary diagonal elements
+    //  Function Name  : CountNo
+    //  Description    : Counts the frequency of the specified number in the matrix
     //  Input          : None
-    //  Output         : Integer (sum of diagonal elements)
+    //  Output         : Integer (frequency of the number)
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public int AddDiagonal()
+    public int CountNo()
     {
         int i = 0, j = 0;
-        int iSum = 0;
+        int iCount = 0;
 
         for(i = 0; i < iRow; i++)
         {
             for(j = 0; j < iCol; j++)
             {
-                if(i == j)
+                if(Arr[i][j] == iNo)
                 {
-                    iSum = iSum + Arr[i][j];
+                    iCount++;
                 }
             }
         }
 
-        return iSum;
+        return iCount;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program72_1
-//  Description     : Entry point of program to demonstrate addition of primary diagonal elements
+//  Class Name      : program72_2
+//  Description     : Entry point of program to demonstrate counting frequency of a specific 
+//                    number in a matrix
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program72_1
+class program72_2
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -154,8 +159,8 @@ class program72_1
         mobj.Accept();
         mobj.Display();
 
-        iRet = mobj.AddDiagonal();
+        iRet = mobj.CountNo();
 
-        System.out.println("Addition of Diagonal elements is : " + iRet);
+        System.out.println("Frequency of the element is : " + iRet);
     }
 }

@@ -9,7 +9,7 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations,
+//  Description     : Represents a 2D matrix and performs matrix operations.
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
@@ -99,45 +99,50 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : AddDiagonal
-    //  Description    : Calculates the sum of the primary diagonal elements
+    //  Function Name  : MaxDiagonal
+    //  Description    : Finds the largest element from both primary and secondary diagonals
     //  Input          : None
-    //  Output         : Integer (sum of diagonal elements)
+    //  Output         : Integer (largest diagonal element)
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public int AddDiagonal()
+    public int MaxDiagonal()
     {
         int i = 0, j = 0;
-        int iSum = 0;
+        int iMax = Arr[0][0];
 
         for(i = 0; i < iRow; i++)
         {
             for(j = 0; j < iCol; j++)
             {
-                if(i == j)
+                if(Arr[i][i] > iMax)
                 {
-                    iSum = iSum + Arr[i][j];
+                    iMax = Arr[i][i];
+                }
+
+                if(Arr[i][iCol-1-i] > iMax)
+                {  
+                    iMax = Arr[i][iCol - 1 -i];
                 }
             }
         }
 
-        return iSum;
+        return iMax;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program72_1
-//  Description     : Entry point of program to demonstrate addition of primary diagonal elements
+//  Class Name      : program72_3
+//  Description     : Entry point of program to demonstrate finding the largest element on both diagonals
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program72_1
+class program72_3
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -154,8 +159,8 @@ class program72_1
         mobj.Accept();
         mobj.Display();
 
-        iRet = mobj.AddDiagonal();
+        iRet = mobj.MaxDiagonal();
 
-        System.out.println("Addition of Diagonal elements is : " + iRet);
+        System.out.println("Largest element from both diagonals is : " + iRet);
     }
 }

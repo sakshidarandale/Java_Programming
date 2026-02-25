@@ -9,7 +9,7 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations,
+//  Description     : Represents a 2D matrix and performs matrix operations
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
@@ -99,45 +99,42 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : AddDiagonal
-    //  Description    : Calculates the sum of the primary diagonal elements
+    //  Function Name  : SwapRows
+    //  Description    : Swaps adjacent rows of the matrix
     //  Input          : None
-    //  Output         : Integer (sum of diagonal elements)
+    //  Output         : Updates matrix with adjacent rows swapped
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public int AddDiagonal()
+    public void SwapRows()
     {
-        int i = 0, j = 0;
-        int iSum = 0;
+        int i = 0 , j = 0;
+        int temp = 0;
 
-        for(i = 0; i < iRow; i++)
+        for(i = 0; i < iRow-1; i+=2)
         {
-            for(j = 0; j < iCol; j++)
+            for(j = 0; j < iCol; j++)   
             {
-                if(i == j)
-                {
-                    iSum = iSum + Arr[i][j];
-                }
+                temp = Arr[i][j];
+                Arr[i][j] = Arr[i+1][j];
+                Arr[i+1][j] = temp;
             }
         }
-
-        return iSum;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program72_1
-//  Description     : Entry point of program to demonstrate addition of primary diagonal elements
+//  Class Name      : program72_5
+//  Description     : Entry point of program to demonstrate swapping adjacent rows of a matrix
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program72_1
+class program72_5
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -148,14 +145,18 @@ class program72_1
 
     public static void main(String A[])
     {
-        int iRet = 0;
+        
         Matrix mobj = new Matrix(4,4);
 
         mobj.Accept();
+
+        System.out.println("Before Swapping : ");
         mobj.Display();
 
-        iRet = mobj.AddDiagonal();
+        mobj.SwapRows();
 
-        System.out.println("Addition of Diagonal elements is : " + iRet);
+        System.out.println("After Swapping : ");
+        mobj.Display();
+
     }
 }

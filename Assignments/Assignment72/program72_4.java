@@ -9,7 +9,7 @@ import java.util.*;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Class Name      : Matrix
-//  Description     : Represents a 2D matrix and performs matrix operations,
+//  Description     : Represents a 2D matrix and performs matrix operations.
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
@@ -99,45 +99,47 @@ class Matrix
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
     //
-    //  Function Name  : AddDiagonal
-    //  Description    : Calculates the sum of the primary diagonal elements
+    //  Function Name  : AddColumn
+    //  Description    : Calculates and prints sum of each column in the matrix
     //  Input          : None
-    //  Output         : Integer (sum of diagonal elements)
+    //  Output         : Prints sum of columns on console
     //  Author         : Sakshi Ravindra Darandale
     //  Date           : 24/02/2026
     //
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    public int AddDiagonal()
+    public int AddColumn()
     {
         int i = 0, j = 0;
-        int iSum = 0;
+        int iColSum = 0;
 
-        for(i = 0; i < iRow; i++)
+        for(j = 0; j < iCol; j++)
         {
-            for(j = 0; j < iCol; j++)
+            iColSum = 0;
+
+            for(i = 0; i < iRow; i++)
             {
-                if(i == j)
-                {
-                    iSum = iSum + Arr[i][j];
-                }
+                iColSum = iColSum + Arr[i][j];
             }
+
+            System.out.println("Sum of column " + (j+1) + " is :" + iColSum);
+
         }
 
-        return iSum;
+        return 0;   
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Class Name      : program72_1
-//  Description     : Entry point of program to demonstrate addition of primary diagonal elements
+//  Class Name      : program72_4
+//  Description     : Entry point of program to demonstrate summing columns of a matrix
 //  Author          : Sakshi Ravindra Darandale
 //  Date            : 24/02/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class program72_1
+class program72_4
 {
     
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -148,14 +150,13 @@ class program72_1
 
     public static void main(String A[])
     {
-        int iRet = 0;
+        
         Matrix mobj = new Matrix(4,4);
 
         mobj.Accept();
         mobj.Display();
 
-        iRet = mobj.AddDiagonal();
+        mobj.AddColumn();
 
-        System.out.println("Addition of Diagonal elements is : " + iRet);
     }
 }
