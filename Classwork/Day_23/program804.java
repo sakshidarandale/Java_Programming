@@ -1,14 +1,19 @@
 //Fibonacci Series
 //0     1    1   2   3   5   8   13  21....
 
-/*
-    Third element = First elemnt + Second element =
-
-*/
 import java.util.*;
 
-class program802
+class program804
 {
+    public static long Fibonacci(int N)
+    {
+        if(N <= 1)
+        {
+            return N;
+        }
+
+        return Fibonacci(N - 1) + Fibonacci(N - 2);
+    }
     public static void main(String A[])
     {
         Scanner sobj = new Scanner(System.in);
@@ -17,19 +22,11 @@ class program802
         int Size = sobj.nextInt();
 
         int i = 0;
-        int First = 0;
-        int Second = 0;
-        int Next = 0;
 
-        for(i = 1,First = 0,Second = 1;i <= Size; i++)
+        for(i = 0; i <= Size; i++)
         {
-            System.out.print(First + " ");
-
-            Next = First + Second;
-            First = Second;
-            Second = Next;
+            System.out.print(Fibonacci(i) + " ");
         }
-
         System.out.println();
 
         sobj.close();

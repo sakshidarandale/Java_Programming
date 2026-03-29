@@ -1,13 +1,9 @@
 //Fibonacci Series
 //0     1    1   2   3   5   8   13  21....
 
-/*
-    Third element = First elemnt + Second element =
-
-*/
 import java.util.*;
 
-class program802
+class program803
 {
     public static void main(String A[])
     {
@@ -16,10 +12,10 @@ class program802
         System.out.println("Enter the number of elements in series : ");
         int Size = sobj.nextInt();
 
-        int i = 0;
-        int First = 0;
-        int Second = 0;
-        int Next = 0;
+        int i = 0;   
+        long First = 0;   //int change to long
+        long Second = 0;
+        long Next = 0;
 
         for(i = 1,First = 0,Second = 1;i <= Size; i++)
         {
