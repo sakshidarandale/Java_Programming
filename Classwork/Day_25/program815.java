@@ -1,24 +1,24 @@
 import java.util.*;
-import java.util.*;
 
-class program814
+class program815
 {
     public static void main(String A[])
     {
         Scanner sobj = new Scanner(System.in);
 
         int iNo = 0;
-        int iDigit = 0;
-
+        int iFact = 0;
+        int i = 0;
+       
         System.out.println("Enter the Number : ");
         iNo = sobj.nextInt();
 
-        while(iNo != 0)
+        iFact = 1;
+        for(i = 1; i<=iNo; i++)
         {
-            iDigit = iNo % 10;
-            System.out.println(iDigit);
-            iNo = iNo / 10;
+            iFact = iFact * i;
         }
+        System.out.println("Factorial is : " +iFact);
 
     }
 }
