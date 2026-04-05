@@ -1,6 +1,6 @@
 import java.util.*;
 
-class program820
+class program829
 {
     public static void main(String A[])
     {
@@ -11,17 +11,19 @@ class program820
         System.out.println("Enter Number : ");
         iNo = sobj.nextInt();
 
-        int iCount = 0, iDigit = 0;
+        int iDigit = 0, iTemp = 0, iRev = 0;
+
+        iTemp = iNo;
 
         while(iNo != 0)
         {
             iDigit = iNo % 10;
-            iCount++;
+
+            iRev = iRev * 10 + iDigit;   //Logic for reversal 
+           
             iNo = iNo / 10;
-
         }
-        System.out.println(iCount);
-
-
+ 
+        System.out.println(iRev);
     }
 }
